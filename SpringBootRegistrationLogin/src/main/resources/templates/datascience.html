@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science Quiz</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0056b3;
+            margin-bottom: 20px;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .question-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .question-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .options li {
+            margin: 10px 0;
+        }
+
+        .options input {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        #score {
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        .correct-answer {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .incorrect {
+            color: red;
+        }
+
+        .corrected-answer {
+            color: #007bff;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Data Science Quiz</h1>
+<div id="timer">Time Remaining: <span id="time">02:00</span></div>
+<div class="quiz-container" id="quiz-container">
+    <div class="question-card">
+        <p>1. What is the primary goal of exploratory data analysis (EDA)?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q1" value="0"> Making predictions</label></li>
+            <li><label><input type="radio" name="q1" value="1"> Summarizing data characteristics</label></li>
+            <li><label><input type="radio" name="q1" value="0"> Testing hypotheses</label></li>
+        </ul>
+        <div class="correct-answer" id="answer1"></div>
+    </div>
+
+    <div class="question-card">
+        <p>2. What does the term "outlier" refer to in statistics?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q2" value="0"> The mean of a dataset</label></li>
+            <li><label><input type="radio" name="q2" value="0"> The mode of a dataset</label></li>
+            <li><label><input type="radio" name="q2" value="1"> Unusual or extreme values in a dataset</label></li>
+        </ul>
+        <div class="correct-answer" id="answer2"></div>
+    </div>
+
+    <div class="question-card">
+        <p>3. In statistics, what is the purpose of the standard deviation?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q3" value="1"> Describing the spread or dispersion of data</label></li>
+            <li><label><input type="radio" name="q3" value="0"> Calculating probabilities</label></li>
+            <li><label><input type="radio" name="q3" value="0"> Measuring central tendency</label></li>
+        </ul>
+        <div class="correct-answer" id="answer3"></div>
+    </div>
+
+    <div class="question-card">
+        <p>4. What is the purpose of a histogram in data visualization?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q4" value="1"> Showing the distribution of a single variable</label></li>
+            <li><label><input type="radio" name="q4" value="0"> Representing geographical data</label></li>
+            <li><label><input type="radio" name="q4" value="0"> Displaying hierarchical relationships</label></li>
+        </ul>
+        <div class="correct-answer" id="answer4"></div>
+    </div>
+
+    <div class="question-card">
+        <p>5. What is the primary purpose of a scatter plot?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q5" value="0"> Representing hierarchical relationships</label></li>
+            <li><label><input type="radio" name="q5" value="1"> Visualizing the relationship between two variables</label></li>
+            <li><label><input type="radio" name="q5" value="0"> Showing the distribution of a single variable</label></li>
+        </ul>
+        <div class="correct-answer" id="answer5"></div>
+    </div>
+
+    <button type="button" class="submit-btn" onclick="calculateScore()">Submit</button>
+    <div id="score"></div>
+</div>
+
+<script>
+    let timeLeft = 120;
+    let timerInterval;
+
+    function startTimer() {
+        const timerElement = document.getElementById('time');
+        timerInterval = setInterval(() => {
+            const minutes = String(Math.floor(timeLeft / 60)).padStart(2, '0');
+            const seconds = String(timeLeft % 60).padStart(2, '0');
+            timerElement.textContent = `${minutes}:${seconds}`;
+            timeLeft--;
+
+            if (timeLeft < 0) {
+                clearInterval(timerInterval);
+                calculateScore();
+                alert("Time's up! Your quiz has been submitted.");
+            }
+        }, 1000);
+    }
+
+    function calculateScore() {
+        // Stop the timer
+        clearInterval(timerInterval);
+
+        const correctAnswers = [
+            "Summarizing data characteristics",
+            "Unusual or extreme values in a dataset",
+            "Describing the spread or dispersion of data",
+            "Showing the distribution of a single variable",
+            "Visualizing the relationship between two variables"
+        ];
+        let score = 0;
+
+        correctAnswers.forEach((correctAnswer, index) => {
+            const selected = document.querySelector(`input[name="q${index + 1}"]:checked`);
+            const result = document.getElementById(`answer${index + 1}`);
+
+            if (selected) {
+                if (parseInt(selected.value) === 1) {
+                    result.textContent = "Correct!";
+                    result.className = "correct-answer correct";
+                    score++;
+                } else {
+                    result.innerHTML = `Incorrect! <span class="corrected-answer">Correct answer: ${correctAnswer}</span>`;
+                    result.className = "correct-answer incorrect";
+                }
+            } else {
+                result.innerHTML = `Not answered! <span class="corrected-answer">Correct answer: ${correctAnswer}</span>`;
+                result.className = "correct-answer incorrect";
+            }
+        });
+
+        document.getElementById('score').innerText = `Your score: ${score} out of 5`;
+    }
+
+    window.onload = startTimer;
+</script>
+
+</body>
+</html>

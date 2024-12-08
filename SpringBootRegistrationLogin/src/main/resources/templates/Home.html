@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7fa;
+        }
+
+        header {
+            background-color: #008b8b;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .nav-links {
+            list-style-type: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffeaa7;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+            background-color: #009688;
+            color: #fff;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .cta-btn {
+            background-color: #ffeaa7;
+            color: #008b8b;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #ffcd38;
+        }
+
+        .features {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .feature-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item h3 {
+            margin-top: 15px;
+            color: #008b8b;
+        }
+
+        .feature-item p {
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .rankings, .exams {
+            padding: 50px;
+            background-color: #eee;
+            text-align: center;
+        }
+
+        .rankings h2, .exams h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .ranking-list {
+            display: flex;
+            justify-content: center;
+        }
+
+        .rank-item {
+            background-color: #fff;
+            padding: 20px;
+            margin: 0 15px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .rank-item h3 {
+            color: #008b8b;
+        }
+
+        .rank-item p {
+            color: #555;
+        }
+
+        footer {
+            background-color: #008b8b;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>CareerPortal Home</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#assessments">Assessments</a></li>
+                <li><a href="#exams">Exams</a></li>
+                <li><a href="#rankings">Rankings</a></li>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h1>Shape Your Future with Career Assessments</h1>
+            <p>Take personalized tests to discover your career path, evaluate your skills, and see where you rank!</p>
+            <a href="/Exam" class="cta-btn">Start Assessment</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://c4.wallpaperflare.com/wallpaper/828/823/723/success-career-growth-hd-wallpaper-preview.jpg" alt="Career Path">
+        </div>
+    </section>
+
+    <section id="assessments" class="features">
+        <h2>Why Choose Us?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>Career Assessments</h3>
+                <p>Discover your strengths and potential career paths with our in-depth assessments.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Mock Exams</h3>
+                <p>Prepare for the real world with mock tests based on industry standards.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Track Rankings</h3>
+                <p>See how you rank against your peers in various skill assessments.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Profile Insights</h3>
+                <p>Get personalized insights on your performance and areas for improvement.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="exams" class="exams">
+        <h2>Exams</h2>
+        <p>Take various skill-based exams to prepare for your future career.</p>
+    </section>
+
+    <section id="rankings" class="rankings">
+        <h2>Top Rankers</h2>
+        <div class="ranking-list">
+            <div class="rank-item">
+                <h3>John Doe</h3>
+                <p>Top 1 - Data Science</p>
+            </div>
+            <div class="rank-item">
+                <h3>Jane Smith</h3>
+                <p>Top 2 - Web Development</p>
+            </div>
+            <div class="rank-item">
+                <h3>Mark Taylor</h3>
+                <p>Top 3 - AI & Machine Learning</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Career Management Portal. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
